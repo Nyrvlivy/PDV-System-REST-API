@@ -1,0 +1,32 @@
+{
+  "name": "desafio-backend-modulo-05-sistema-pdv-b2b-ifood-t09",
+  "version": "1.0.0",
+  "description": "![](https://i.imgur.com/xG74tOh.png)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server/index",
+    "test-db": "node src/tests/testDBConnection.js"
+  },
+  "keywords": [
+    "node.js",
+    "bcrypt",
+    "dotenv",
+    "express",
+    "jsonwebtoken",
+    "pg",
+    "joi"
+  ],
+  "author": "MBY",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
