@@ -2,10 +2,10 @@ const pool = require("../configs/database/connection/connection");
 
 pool.query("SELECT NOW()", (error, res) => {
   if (error) {
-    console.error("Erro ao conectar ao banco de dados", error);
+    console.error("Error connecting to the database.", error);
   } else {
     console.log(
-      "Conexão bem-sucedida. Data e hora atual do banco de dados:",
+      "Successful connection. Current date and time of the database:",
       res.rows[0].now
     );
   }

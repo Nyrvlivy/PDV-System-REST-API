@@ -7,7 +7,7 @@ const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  ssl: process.env.NODE_ENV==="development",
+  ssl: process.env.NODE_ENV==="poduction",
 });
 
 module.exports = pool;
