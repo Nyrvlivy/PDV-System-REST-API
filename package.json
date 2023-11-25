@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon src/server/index",
+        "start": "node src/server/index",
         "test-db": "node src/tests/testDBConnection.js"
     },
     "keywords": [],
