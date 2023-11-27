@@ -11,6 +11,4 @@ const usersRepository = {
     },
 }
 
-module.exports = {
-    getById,
-}
+module.exports = usersRepository;
