@@ -1,4 +1,4 @@
-const categoriesRepository = require("../repositories/categoriesRepository");
+const categoriesRepository = require("./categoriesRepository");
 const usersRepository = require("./usersRepository");
 
 module.exports = {
