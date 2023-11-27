@@ -1,3 +1,3 @@
-const generateToken = require('./jwtUtils');
+const generateToken = require("./jwtUtils");
 
 module.exports = { generateToken };

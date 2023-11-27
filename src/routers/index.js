@@ -5,5 +5,5 @@ const loginRouter = require("./loginRouter");
 module.exports = {
     statusRouter,
     categoriesRouter,
-    loginRouter
+    loginRouter,
 };
