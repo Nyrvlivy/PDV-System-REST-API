@@ -1,9 +1,9 @@
 const { getAllCategoriesController } = require("./categories");
-const detailingUserLoggedController = require("./detailing");
-const { loginUserController } = require("./login")
+const { loginUserController } = require("./login");
+const { getUserProfileController } = require("./users");
 
 module.exports = {
     getAllCategoriesController,
     loginUserController,
-    detailingUserLoggedController,
+    getUserProfileController,
 };

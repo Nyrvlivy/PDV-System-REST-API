@@ -1,11 +1,11 @@
 const statusRouter = require("./statusRouter");
 const categoriesRouter = require("./categoriesRouter");
 const loginRouter = require("./loginRouter");
-const detailingUserRouter = require("./detailingUserRouter");
+const usersRouter = require("./usersRouter");
 
 module.exports = {
     statusRouter,
     categoriesRouter,
     loginRouter,
-    detailingUserRouter,
+    usersRouter,
 };

@@ -1,14 +1,13 @@
 const connection = require("../configs/database/connection/connection");
 
 const usersRepository = {
-
-    getById: async function ( id ) {
+    getById: async function (id) {
         return await connection
-            .select('*')
-            .from('categorias')
-            .where('id', id)
+            .select("*")
+            .from("usuarios")
+            .where("id", id)
             .first();
     },
-}
+};
 
 module.exports = usersRepository;
