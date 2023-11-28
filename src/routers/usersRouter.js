@@ -30,7 +30,7 @@
  *         content:
  *           application/json:
  *             example:
- *               error: "Cliente não encontrado."
+ *               error: "Usuário não encontrado."
  *       500:
  *         description: Erro interno do servidor
  *         content:
@@ -41,10 +41,16 @@
 
 const { Router } = require("express");
 const usersRouter = Router();
-const { getUserProfileController } = require("../controllers");
-const { tokenValidation } = require("../middlewares");
+const {
+    createUserController,
+    getUserProfileController,
+    updateUserController,
+} = require("../controllers");
+const { authToken } = require("../middlewares");
 
-usersRouter.use(tokenValidation);
-usersRouter.get("/", getUserProfileController.handle);
+usersRouter.post("/", createUserController.handle);
+usersRouter.use(authToken);
+usersRouter.get("/", authToken, getUserProfileController.handle);
+usersRouter.put("/", authToken, updateUserController.handle);
 
 module.exports = usersRouter;
