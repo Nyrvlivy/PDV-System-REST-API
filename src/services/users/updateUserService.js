@@ -1,18 +1,25 @@
 const { usersRepository } = require("../../repositories");
-const { validateUserUpdate } = require("../../utils");
+const { validateUserUpdate, validateUserExists } = require("../../utils");
 const bcrypt = require("bcrypt");
 
-const updateUserService = async (userParams) => {
-    validateUserUpdate(userParams);
-    const { id, nome, email, senha } = userParams;
+const updateUserService = {
+    async execute(payload) {
+        validateUserUpdate(payload);
+        const { id, nome, email, senha } = payload;
 
-    const userExists = await usersRepository.getByEmail(id);
-    if (userExists) throw new Error("Email já está em uso")
+        await validateUserExists(payload.email);
 
-    const hashedPassword = await bcrypt.hash(senha, 6);
+        const hashedPassword = await bcrypt.hash(senha, 6);
 
-    const user = await usersRepository.update(id, nome, email, hashedPassword);
-    return user;
+        const user = await usersRepository.update(
+            id,
+            nome,
+            email,
+            hashedPassword
+        );
+        delete user.senha;
+        return user;
+    },
 };
 
 module.exports = updateUserService;

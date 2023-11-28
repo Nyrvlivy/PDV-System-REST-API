@@ -1,12 +1,7 @@
 const joi = require("joi");
 
 const userSchema = joi.object({
-    id: joi.number().integer().required().messages({
-        "number.base": "Id deve ser um número!",
-        "number.integer": "Id deve ser um número inteiro!",
-        "any.required": "Id é um campo obrigatório!",
-    }),
-    name: joi.string().min(3).required().messages({
+    nome: joi.string().min(3).required().messages({
         "string.base": "Nome deve ser uma string!",
         "string.empty": "Nome não pode estar vazio!",
         "string.min": "Nome deve ter no mínimo 3 caracteres!",
@@ -30,4 +25,14 @@ const userSchema = joi.object({
     }),
 });
 
-module.exports = userSchema;
+const updateUserSchema = userSchema.concat(
+    joi.object({
+        id: joi.number().integer().required().messages({
+            "number.base": "Id deve ser um número!",
+            "number.integer": "Id deve ser um número inteiro!",
+            "any.required": "Id é um campo obrigatório!",
+        }),
+    })
+);
+
+module.exports = { userSchema, updateUserSchema };
