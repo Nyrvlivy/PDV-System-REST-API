@@ -1,7 +1,7 @@
-const InvalidParamError = require("../errors");
+const { updateUserSchema } = require("../schemas");
 
-const validateUserUpdate = (userData) => {
-    const { error, value } = schema.validate(userData);
+const validateUserUpdate = (payload) => {
+    const { error, value } = updateUserSchema.validate(payload);
     if (error) throw error;
     return value;
 };

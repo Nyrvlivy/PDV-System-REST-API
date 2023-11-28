@@ -1,9 +1,9 @@
 const { usersRepository } = require("../../repositories");
-const { verifyClientExists } = require("../../utils");
+const { verifyUserExists } = require("../../utils");
 
 const getUserProfileService = {
     async execute(id) {
-        await verifyClientExists(id);
+        await verifyUserExists(id);
 
         const user = await usersRepository.getById(id);
         delete user.senha;

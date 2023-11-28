@@ -1,11 +1,15 @@
 const generateToken = require("./jwtUtils");
-const verifyClientExists = require("./verifyClientExists");
+const verifyUserExists = require("./verifyUserExists");
 const verifyIfIdValid = require("./verifyIfIdValid");
 const validateUserUpdate = require("./validateUserUpdate");
+const validateUserCreate = require("./validateUserCreate");
+const validateUserExists = require("./validateUserExists");
 
-module.exports = { 
+module.exports = {
     generateToken,
-    verifyClientExists,
+    verifyUserExists,
     verifyIfIdValid,
     validateUserUpdate,
+    validateUserCreate,
+    validateUserExists,
 };
