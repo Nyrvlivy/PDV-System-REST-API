@@ -4,7 +4,7 @@ const verifyClientExists = async (id) => {
     const clientFound = await repository.getById(id);
 
     if (!clientFound)
-        return res.status(404).json({ error: "Cliente não encontrado." });
+        return res.status(404).json({ error: "Usuário não encontrado." });
 };
 
 module.exports = verifyClientExists;
