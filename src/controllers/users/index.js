@@ -1,3 +1,4 @@
 const getUserProfileController = require("./getUserProfileController");
+const updateUserController = require("./updateUserController");
 
-module.exports = { getUserProfileController };
+module.exports = { getUserProfileController, updateUserController };
