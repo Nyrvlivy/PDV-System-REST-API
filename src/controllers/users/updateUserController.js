@@ -9,9 +9,10 @@ const updateUserController = {
             const user = await updateUserService.execute({ ...req.body, id });
             return res.status(200).json(user);
         } catch (error) {
-            if (error instanceof InvalidParamError)
-                return res.status(400).json(error.message);
-            if (error instanceof ValidationError)
+            if (
+                error instanceof InvalidParamError ||
+                error instanceof ValidationError
+            )
                 return res.status(400).json(error.message);
             return res.status(500).json({ error: "Erro interno do servidor!" });
         }
