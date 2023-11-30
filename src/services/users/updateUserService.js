@@ -1,5 +1,5 @@
 const { usersRepository } = require("../../repositories");
-const { validateUserUpdate, verifyEmailExists } = require("../../utils");
+const { validateUserUpdate, verifyUserEmailExists } = require("../../utils");
 const bcrypt = require("bcrypt");
 
 const updateUserService = {
@@ -7,7 +7,7 @@ const updateUserService = {
         validateUserUpdate(payload);
         const { id, nome, email, senha } = payload;
 
-        await verifyEmailExists(payload.email);
+        await verifyUserEmailExists(payload.email);
 
         const hashedPassword = await bcrypt.hash(senha, 6);
 
