@@ -6,6 +6,7 @@ const {
     categoriesRouter,
     loginRouter,
     usersRouter,
+    productsRouter,
 } = require("./routers");
 const { swaggerSpec, swaggerUi } = require("../docs/swagger");
 
@@ -17,5 +18,6 @@ app.use("/", statusRouter);
 app.use("/categoria", categoriesRouter);
 app.use("/login", loginRouter);
 app.use("/usuario", usersRouter);
+app.use("/produto", productsRouter);
 
 module.exports = app;
