@@ -78,13 +78,13 @@ const options = {
                                 },
                             },
                         },
-                        500: {
-                            description: "Erro interno do servidor",
-                            content: {
-                                "application/json": {
-                                    example: {
-                                        mensagem: "Erro interno do servidor!",
-                                    },
+                    },
+                    500: {
+                        description: "Erro interno do servidor",
+                        content: {
+                            "application/json": {
+                                example: {
+                                    mensagem: "Erro interno do servidor!",
                                 },
                             },
                         },
@@ -157,7 +157,12 @@ const options = {
                         content: {
                             "application/json": {
                                 schema: {
-                                    $ref: "#/components/schemas/CreateUser",
+                                    $ref: "#/components/schemas/Usuários",
+                                },
+                                example: {
+                                    nome: "New User",
+                                    email: "user@example.com",
+                                    senha: "new-password",
                                 },
                             },
                         },
@@ -168,7 +173,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     schema: {
-                                        $ref: "#/components/schemas/User",
+                                        $ref: "#/components/schemas/Userários",
                                     },
                                     example: {
                                         id: 1,
@@ -201,6 +206,7 @@ const options = {
                         },
                     },
                 },
+
                 get: {
                     summary: "Obtém o perfil detalhado do usuário",
                     description:
@@ -213,7 +219,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     schema: {
-                                        $ref: "#/components/schemas/User",
+                                        $ref: "#/components/schemas/Usuários",
                                     },
                                     example: {
                                         id: 1,
@@ -266,7 +272,7 @@ const options = {
                         content: {
                             "application/json": {
                                 schema: {
-                                    $ref: "#/components/schemas/UpdateUser",
+                                    $ref: "#/components/schemas/Usuários",
                                 },
                                 example: {
                                     nome: "New Name",
@@ -327,38 +333,20 @@ const options = {
                 },
             },
         },
-
         components: {
             schemas: {
-                LoginCredentials: {
-                    type: "object",
-                    properties: {
-                        email: { type: "string", format: "email" },
-                        senha: { type: "string", format: "password" },
-                    },
-                    required: ["email", "senha"],
-                },
-                User: {
+                Categorias: {
                     type: "object",
                     properties: {
                         id: { type: "integer", format: "int64" },
-                        nome: { type: "string" },
-                        email: { type: "string", format: "email" },
+                        descricao: { type: "string" },
                     },
-                    required: ["id", "nome", "email"],
+                    required: ["id", "descricao"],
                 },
-                CreateUser: {
+                Usuários: {
                     type: "object",
                     properties: {
-                        nome: { type: "string" },
-                        email: { type: "string", format: "email" },
-                        senha: { type: "string", format: "password" },
-                    },
-                    required: ["nome", "email", "senha"],
-                },
-                UpdateUser: {
-                    type: "object",
-                    properties: {
+                        id: { type: "integer", format: "int64" },
                         nome: { type: "string" },
                         email: { type: "string", format: "email" },
                         senha: { type: "string", format: "password" },
