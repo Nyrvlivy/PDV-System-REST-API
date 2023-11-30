@@ -1,9 +1,15 @@
 const connection = require("../configs/database/connection/connection");
+const { loginUserSchema } = require("../schemas");
+const { ValidationError } = require("joi");
 const bcrypt = require("bcrypt");
 
 const validateLoginCredentials = async (req, res, next) => {
     try {
         const { email, senha } = req.body;
+
+        const { error } = loginUserSchema.validate({ email, senha });
+        if (error) throw error;
+
         const user = await connection("usuarios").where({ email }).first();
         if (!user) {
             return res
@@ -20,6 +26,9 @@ const validateLoginCredentials = async (req, res, next) => {
         req.user = userData;
         next();
     } catch (error) {
+        if (error instanceof ValidationError) {
+            return res.status(400).json({ mensagem: error.message });
+        }
         return res.status(500).json({ mensagem: "Erro interno do servidor" });
     }
 };

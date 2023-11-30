@@ -1,5 +1,3 @@
-const repository = require("../repositories/usersRepository");
-
 const verifyIfIdValid = async () => {
     const { id } = req.params;
 
