@@ -1,7 +1,6 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const path = require("path");
-const { userSchema } = require("../src/schemas");
 
 const options = {
     definition: {
