@@ -14,7 +14,7 @@ const createProductSchema = joi.object({
     }),
     valor: joi.number().integer().required().messages({
         "number.base": "Valor deve ser um número!",
-        "number.integer": "Valor deve ser um número em centavos!",
+        "number.integer": "Valor deve ser um número inteiro e em centavos!",
         "number.empty": "Valor não pode estar vazio!",
         "any.required": "Valor é um campo obrigatório!",
     }),
