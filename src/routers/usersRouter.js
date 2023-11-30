@@ -50,7 +50,7 @@ const { authToken } = require("../middlewares");
 
 usersRouter.post("/", createUserController.handle);
 usersRouter.use(authToken);
-usersRouter.get("/", authToken, getUserProfileController.handle);
-usersRouter.put("/", authToken, updateUserController.handle);
+usersRouter.get("/", getUserProfileController.handle); // tirar
+usersRouter.put("/", updateUserController.handle);
 
 module.exports = usersRouter;

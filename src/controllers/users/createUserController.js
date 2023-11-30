@@ -13,7 +13,7 @@ const createUserController = {
                 return res.status(400).json(error.message);
             if (error instanceof ValidationError)
                 return res.status(400).json(error.message);
-            return res.status(500).json("Erro interno do servidor");
+            return res.status(500).json(error.message);
         }
     },
 };
