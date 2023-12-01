@@ -6,7 +6,11 @@ const {
     updateUserController,
 } = require("./users");
 const { createProductController } = require("./products");
-const { createCostumerController } = require("./costumers");
+const {
+    createCostumerController,
+    getCostumerController,
+    getCostumerByIdController
+} = require("./costumers");
 
 module.exports = {
     getAllCategoriesController,
@@ -16,4 +20,6 @@ module.exports = {
     updateUserController,
     createProductController,
     createCostumerController,
+    getCostumerController,
+    getCostumerByIdController
 };
