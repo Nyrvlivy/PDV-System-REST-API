@@ -1,15 +1,25 @@
 const generateToken = require("./jwtUtils");
-const verifyUserExists = require("./verifyUserExists");
-const verifyIfIdValid = require("./verifyIfIdValid");
-const validateUserUpdate = require("./validateUserUpdate");
 const validateUserCreate = require("./validateUserCreate");
-const validateUserExists = require("./validateUserExists");
+const validateUserUpdate = require("./validateUserUpdate");
+const validateProductCreate = require("./validateProductCreate");
+const validateCostumerCreate = require("./validateCostumerCreate");
+const verifyIfIdValid = require("./verifyIfIdValid");
+const verifyCategoryExists = require("./verifyCategoryExists");
+const verifyUserExists = require("./verifyUserExists");
+const verifyUserEmailExists = require("./verifyUserEmailExists");
+const verifyCostumerEmailExists = require("./verifyCostumerEmailExists");
+const verifyCostumerCPFExists = require("./verifyCostumerCPFExists");
 
 module.exports = {
     generateToken,
-    verifyUserExists,
-    verifyIfIdValid,
-    validateUserUpdate,
     validateUserCreate,
-    validateUserExists,
+    validateUserUpdate,
+    validateProductCreate,
+    validateCostumerCreate,
+    verifyIfIdValid,
+    verifyCategoryExists,
+    verifyUserExists,
+    verifyUserEmailExists,
+    verifyCostumerEmailExists,
+    verifyCostumerCPFExists,
 };

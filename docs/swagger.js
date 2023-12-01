@@ -22,7 +22,7 @@ const options = {
                 description: "API de Produção - RENDER",
             },
             {
-                url: "https://localhost:3000/",
+                url: "http://localhost:3000/",
                 description: "API de Teste - LOCALHOST",
             },
         ],
@@ -101,7 +101,11 @@ const options = {
                         content: {
                             "application/json": {
                                 schema: {
-                                    $ref: "#/components/schemas/LoginCredentials",
+                                    $ref: "#/components/schemas/Usuários",
+                                },
+                                example: {
+                                    email: "user@example.com",
+                                    senha: "password",
                                 },
                             },
                         },
@@ -173,7 +177,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     schema: {
-                                        $ref: "#/components/schemas/Userários",
+                                        $ref: "#/components/schemas/Usuários",
                                     },
                                     example: {
                                         id: 1,
@@ -332,6 +336,190 @@ const options = {
                     },
                 },
             },
+            "/produto": {
+                post: {
+                    summary: "Cria um novo produto",
+                    description:
+                        "Cria um novo produto com as informações fornecidas no corpo da requisição",
+                    tags: ["Produtos"],
+                    security: [{ bearerAuth: [] }],
+                    requestBody: {
+                        required: true,
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    $ref: "#/components/schemas/Produtos",
+                                },
+                                example: {
+                                    descricao: "New Product",
+                                    quantidade_estoque: 100,
+                                    valor: 1000,
+                                    categoria_id: 1,
+                                },
+                            },
+                        },
+                    },
+                    responses: {
+                        201: {
+                            description: "Produto criado com sucesso",
+                            content: {
+                                "application/json": {
+                                    schema: {
+                                        $ref: "#/components/schemas/Produtos",
+                                    },
+                                    example: {
+                                        id: 1,
+                                        descricao: "New Product",
+                                        quantidade_estoque: 100,
+                                        valor: 1000,
+                                        categoria_id: 1,
+                                    },
+                                },
+                            },
+                        },
+                        400: {
+                            description:
+                                "Requisição inválida (parâmetros ausentes ou inválidos)",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        error: "Descrição deve ter no mínimo 3 caracteres!",
+                                    },
+                                },
+                            },
+                        },
+                        401: {
+                            description: "Não autorizado",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        error: "Para acessar este recurso um token de autenticação válido deve ser enviado.",
+                                    },
+                                },
+                            },
+                        },
+                        500: {
+                            description: "Erro interno do servidor",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        mensagem: "Erro interno do servidor!",
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            "/cliente": {
+                post: {
+                    summary: "Cria um novo cliente",
+                    description:
+                        "Cria um novo cliente com as informações fornecidas no corpo da requisição",
+                    tags: ["Clientes"],
+                    security: [{ bearerAuth: [] }],
+                    requestBody: {
+                        required: true,
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    $ref: "#/components/schemas/Clientes",
+                                },
+                                examples: {
+                                    example1: {
+                                        value: {
+                                            nome: "User",
+                                            email: "user@example.com",
+                                            cpf: "98765432109",
+                                            cep: "12345678",
+                                            rua: "Street ABC",
+                                            numero: 42,
+                                            bairro: "Neighborhood XYZ",
+                                            cidade: "City",
+                                            estado: "CA",
+                                        },
+                                    },
+                                    example2: {
+                                        value: {
+                                            nome: "User",
+                                            email: "user@example.com",
+                                            cpf: "12345678910",
+                                            cep: "",
+                                            rua: "",
+                                            numero: null,
+                                            bairro: "",
+                                            cidade: "",
+                                            estado: "",
+                                        },
+                                    },
+                                    example3: {
+                                        value: {
+                                            nome: "User",
+                                            email: "user@example.com",
+                                            cpf: "98765432109",
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    responses: {
+                        201: {
+                            description: "Cliente criado com sucesso",
+                            content: {
+                                "application/json": {
+                                    schema: {
+                                        $ref: "#/components/schemas/Clientes",
+                                    },
+                                    example: {
+                                        id: 1,
+                                        nome: "User",
+                                        email: "user@example.com",
+                                        cpf: "98765432109",
+                                        cep: "12345678",
+                                        rua: "Street ABC",
+                                        numero: 42,
+                                        bairro: "Neighborhood XYZ",
+                                        cidade: "City",
+                                        estado: "CA",
+                                    },
+                                },
+                            },
+                        },
+                        400: {
+                            description:
+                                "Requisição inválida (parâmetros ausentes ou inválidos)",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        error: "CPF deve ter 11 caracteres!",
+                                    },
+                                },
+                            },
+                        },
+                        401: {
+                            description: "Não autorizado",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        error: "Para acessar este recurso um token de autenticação válido deve ser enviado.",
+                                    },
+                                },
+                            },
+                        },
+                        500: {
+                            description: "Erro interno do servidor",
+                            content: {
+                                "application/json": {
+                                    example: {
+                                        mensagem: "Erro interno do servidor!",
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
         },
         components: {
             schemas: {
@@ -352,6 +540,42 @@ const options = {
                         senha: { type: "string", format: "password" },
                     },
                     required: ["id", "nome", "email", "senha"],
+                },
+                Produtos: {
+                    type: "object",
+                    properties: {
+                        id: { type: "integer", format: "int64" },
+                        descricao: { type: "string" },
+                        quantidade_estoque: {
+                            type: "integer",
+                            format: "int64",
+                        },
+                        valor: { type: "integer", format: "int64" },
+                        categoria_id: { type: "integer", format: "int64" },
+                    },
+                    required: [
+                        "id",
+                        "descricao",
+                        "quantidade_estoque",
+                        "valor",
+                        "categoria_id",
+                    ],
+                },
+                Clientes: {
+                    type: "object",
+                    properties: {
+                        id: { type: "integer", format: "int64" },
+                        nome: { type: "string" },
+                        email: { type: "string", format: "email" },
+                        cpf: { type: "string", maxLength: 11 },
+                        cep: { type: "string", maxLength: 8 },
+                        rua: { type: "string" },
+                        numero: { type: "integer" },
+                        bairro: { type: "string" },
+                        cidade: { type: "string" },
+                        estado: { type: "string", maxLength: 2 },
+                    },
+                    required: ["id", "nome", "email", "cpf"],
                 },
             },
             securitySchemes: {

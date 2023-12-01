@@ -5,6 +5,8 @@ const {
     getUserProfileService,
     updateUserService,
 } = require("./users");
+const { createProductService } = require("./products");
+const { createCostumerService } = require("./costumers");
 
 module.exports = {
     getAllCategoriesService,
@@ -12,4 +14,6 @@ module.exports = {
     createUserService,
     getUserProfileService,
     updateUserService,
+    createProductService,
+    createCostumerService,
 };
