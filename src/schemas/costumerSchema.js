@@ -16,12 +16,16 @@ const createCostumerSchema = joi.object({
             "string.email": "Por favor, insira um e-mail válido!",
             "any.required": "E-mail é um campo obrigatório!",
         }),
-    cpf: joi.string().length(11).required().messages({
-        "string.base": "CPF deve ser uma string!",
-        "string.empty": "CPF é um campo obrigatório!",
-        "string.length": "CPF deve ter 11 caracteres!",
-        "any.required": "CPF é um campo obrigatório!",
-    }),
+    cpf: joi
+        .string()
+        .pattern(/^[0-9]{11}$/)
+        .required()
+        .messages({
+            "string.base": "CPF deve ser uma string!",
+            "string.empty": "CPF é um campo obrigatório!",
+            "string.pattern.base": "CPF deve ter 11 caracteres numéricos!",
+            "any.required": "CPF é um campo obrigatório!",
+        }),
     cep: joi.string().length(8).allow("").messages({
         "string.base": "CEP deve ser uma string!",
         "string.length": "CEP deve ter 8 caracteres!",
