@@ -1,4 +1,4 @@
-const { productsRepository } = require("../../repositories");
+const productsRepository = require("../../repositories/productsRepository");
 const { verifyIfProductIdExists } = require("../../utils");
 
 const deleteProductByIdService = {
