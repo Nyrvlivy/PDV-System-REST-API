@@ -8,3 +8,4 @@ INSERT INTO categorias (descricao) VALUES
 ('Moda'),
 ('Bebê'),
 ('Games');
+

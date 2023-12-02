@@ -1,5 +1,7 @@
 const { getAllCategoriesService } = require("./categories");
 const { loginUserService } = require("./login");
+const { updateProductService } = require("./products");
+
 const {
     createUserService,
     getUserProfileService,
@@ -12,4 +14,5 @@ module.exports = {
     createUserService,
     getUserProfileService,
     updateUserService,
+    updateProductService
 };
