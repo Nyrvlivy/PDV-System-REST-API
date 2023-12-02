@@ -5,7 +5,7 @@ const categoriesRepository = {
         return await connection.select("*").from("categorias");
     },
 
-    getById: async function (id) {
+    getByPK: async function (id) {
         return await connection
             .select("*")
             .from("categorias")

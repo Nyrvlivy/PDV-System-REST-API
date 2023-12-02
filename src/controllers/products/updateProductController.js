@@ -6,12 +6,13 @@ const updateProductController = {
     async handle(req, res) {
         try {
             const { id } = req.params;
-            const updateProduct = await updateProductService.execute({
+            const updatedProduct = await updateProductService.execute({
                 ...req.body,
                 id,
             });
-            return res.status(200).json(updateProduct);
+            return res.status(200).json(updatedProduct);
         } catch (error) {
+            console.log(error);
             if (
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError

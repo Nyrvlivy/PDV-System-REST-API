@@ -1,28 +1,27 @@
 const { productsRepository } = require("../../repositories");
 const {
-    validateProductExists,
-    validateMandatoryFields,
-    validateExistingCategory,
-} = require("../../utils/validateProductExists");
+    validateProductUpdate,
+    verifyProductExists,
+    verifyCategoryExists,
+} = require("../../utils");
 
 const updateProductService = {
     async execute(payload) {
-        validateMandatoryFields(payload);
+        validateProductUpdate(payload);
         const { id, descricao, quantidade_estoque, valor, categoria_id } =
             payload;
 
-        await validateProductExists(id);
-        await validateExistingCategory(categoria_id);
+        await verifyProductExists(payload.id);
+        await verifyCategoryExists(payload.categoria_id);
 
-        const updateProduct = await productsRepository.update(
+        const updatedProduct = await productsRepository.update(
             id,
             descricao,
             quantidade_estoque,
             valor,
             categoria_id
         );
-
-        return updateProduct;
+        return updatedProduct;
     },
 };
 

@@ -11,7 +11,6 @@ const createCostumerController = {
 
             return res.status(201).json(costumer);
         } catch (error) {
-            console.log(error);
             if (
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError
