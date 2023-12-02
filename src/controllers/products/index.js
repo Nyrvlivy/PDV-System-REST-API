@@ -1,3 +1,4 @@
 const createProductController = require("./createProductController");
+const updateProductController = require("./updateProductController");
 
-module.exports = { createProductController };
+module.exports = { createProductController, updateProductController };

@@ -3,7 +3,7 @@ const {
     createUserSchema,
     updateUserSchema,
 } = require("./userSchema");
-const { createProductSchema } = require("./productSchema");
+const { createProductSchema, updateProductSchema } = require("./productSchema");
 const { createCostumerSchema } = require("./costumerSchema");
 
 module.exports = {
@@ -11,5 +11,6 @@ module.exports = {
     createUserSchema,
     updateUserSchema,
     createProductSchema,
+    updateProductSchema,
     createCostumerSchema,
 };

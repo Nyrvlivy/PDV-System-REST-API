@@ -1,4 +1,5 @@
 const joi = require("joi");
+
 const createProductSchema = joi.object({
     descricao: joi.string().min(3).required().messages({
         "string.base": "Descrição deve ser uma string!",
@@ -26,4 +27,14 @@ const createProductSchema = joi.object({
     }),
 });
 
-module.exports = { createProductSchema };
+const updateProductSchema = createProductSchema.concat(
+    joi.object({
+        id: joi.number().integer().required().messages({
+            "number.base": "Id deve ser um número!",
+            "number.integer": "Id deve ser um número inteiro!",
+            "any.required": "Id é um campo obrigatório!",
+        }),
+    })
+);
+
+module.exports = { createProductSchema, updateProductSchema };

@@ -1,3 +1,7 @@
 const getAllCategoriesService = require("./getAllCategoriesService");
+// const getCategoryByIdService = require("./getCategoryByIdService");
 
-module.exports = { getAllCategoriesService };
+module.exports = {
+    getAllCategoriesService,
+    // getCategoryByIdService
+};
