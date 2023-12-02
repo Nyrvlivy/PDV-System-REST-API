@@ -5,7 +5,7 @@ const { ValidationError } = require("joi");
 const updateCostumerController = {
     async handle(req, res) {
         try {
-            const { id } = req.parans;
+            const { id } = req.params;
             const payload = req.body;
     
             const costumer = await updateCostumerService.execute({ payload, id });
