@@ -5,6 +5,9 @@ const {
     getUserProfileController,
     updateUserController,
 } = require("./users");
+const {
+    deleteProductByIdController,
+} = require("./products");
 
 module.exports = {
     getAllCategoriesController,
@@ -12,4 +15,5 @@ module.exports = {
     createUserController,
     getUserProfileController,
     updateUserController,
+    deleteProductByIdController,
 };

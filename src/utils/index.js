@@ -4,6 +4,7 @@ const verifyIfIdValid = require("./verifyIfIdValid");
 const validateUserUpdate = require("./validateUserUpdate");
 const validateUserCreate = require("./validateUserCreate");
 const validateUserExists = require("./validateUserExists");
+const verifyIfProductIdExists = require("./verifyIfProductIdExists");
 
 module.exports = {
     generateToken,
@@ -12,4 +13,5 @@ module.exports = {
     validateUserUpdate,
     validateUserCreate,
     validateUserExists,
+    verifyIfProductIdExists,
 };
