@@ -4,11 +4,12 @@ const validateUserUpdate = require("./validateUserUpdate");
 const validateProductCreate = require("./validateProductCreate");
 const validateProductUpdate = require("./validateProductUpdate");
 const validateCostumerCreate = require("./validateCostumerCreate");
-const verifyIfIdValid = require("./verifyIfIdValid");
+const verifyIdIsValid = require("./verifyIdIsValid");
 const verifyCategoryExists = require("./verifyCategoryExists");
 const verifyUserExists = require("./verifyUserExists");
 const verifyUserEmailExists = require("./verifyUserEmailExists");
 const verifyProductExists = require("./verifyProductExists");
+const verifyCostumerExists = require("./verifyCostumerExists");
 const verifyCostumerEmailExists = require("./verifyCostumerEmailExists");
 const verifyCostumerCPFExists = require("./verifyCostumerCPFExists");
 
@@ -19,11 +20,12 @@ module.exports = {
     validateProductCreate,
     validateProductUpdate,
     validateCostumerCreate,
-    verifyIfIdValid,
+    verifyIdIsValid,
     verifyCategoryExists,
     verifyUserExists,
     verifyUserEmailExists,
     verifyProductExists,
+    verifyCostumerExists,
     verifyCostumerEmailExists,
     verifyCostumerCPFExists,
 };

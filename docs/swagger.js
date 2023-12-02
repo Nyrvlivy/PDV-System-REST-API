@@ -84,7 +84,7 @@ const options = {
                         content: {
                             "application/json": {
                                 example: {
-                                    mensagem: "Erro interno do servidor!",
+                                    error: "Erro interno do servidor!",
                                 },
                             },
                         },
@@ -142,7 +142,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },
@@ -203,7 +203,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },
@@ -258,7 +258,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },
@@ -328,7 +328,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },
@@ -403,7 +403,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },
@@ -512,7 +512,7 @@ const options = {
                             content: {
                                 "application/json": {
                                     example: {
-                                        mensagem: "Erro interno do servidor!",
+                                        error: "Erro interno do servidor!",
                                     },
                                 },
                             },

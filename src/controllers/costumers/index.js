@@ -1,9 +1,9 @@
 const createCostumerController = require("./createCostumerController");
-const getCostumerController = require("./getCostumerController");
+const getAllCostumersController = require("./getAllCostumersController");
 const getCostumerByIdController = require("./getCostumerByIdController");
 
 module.exports = {
     createCostumerController,
-    getCostumerController,
-    getCostumerByIdController
+    getAllCostumersController,
+    getCostumerByIdController,
 };

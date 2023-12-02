@@ -1,9 +1,13 @@
 const { costumersRepository } = require("../../repositories");
+const { verifyIdIsValid, verifyCostumerExists } = require("../../utils");
 
 const getCostumerByIdService = {
     async execute(id) {
-        const costumer = await costumersRepository.getById(id);
+        verifyIdIsValid(id);
+        await verifyCostumerExists(id);
+        const costumer = await costumersRepository.getByPK(id);
+
         return costumer;
-    }
-}
+    },
+};
 module.exports = getCostumerByIdService;

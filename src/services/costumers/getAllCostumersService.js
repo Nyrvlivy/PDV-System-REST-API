@@ -1,9 +1,10 @@
 const { costumersRepository } = require("../../repositories");
 
-const getCostumerService = {
+const getAllCostumersService = {
     async execute() {
         const costumer = await costumersRepository.getAll();
+
         return costumer;
-    }
-}
-module.exports = getCostumerService;
+    },
+};
+module.exports = getAllCostumersService;

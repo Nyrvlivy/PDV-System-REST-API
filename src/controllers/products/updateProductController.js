@@ -1,5 +1,5 @@
 const { updateProductService } = require("../../services");
-const { InvalidParamError } = require("../../errors");
+const { InvalidParamError, NotFoundError } = require("../../errors");
 const { ValidationError } = require("joi");
 
 const updateProductController = {
@@ -12,13 +12,14 @@ const updateProductController = {
             });
             return res.status(200).json(updatedProduct);
         } catch (error) {
-            console.log(error);
             if (
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError
             )
                 return res.status(400).json({ error: error.message });
-            return res.status(500).json({ error: error.message }); //
+            if (error instanceof NotFoundError)
+                return res.status(404).json({ error: error.message });
+            return res.status(500).json({ error: "Erro interno do servidor!" });
         }
     },
 };

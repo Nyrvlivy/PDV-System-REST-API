@@ -1,9 +1,9 @@
 const { productsRepository } = require("../repositories");
-const { InvalidParamError } = require("../errors");
+const { NotFoundError } = require("../errors");
 
 const verifyProductExists = async (id) => {
-    const product = await productsRepository.findByPk(id);
-    if (!product) throw new InvalidParamError("Produto não encontrado.");
+    const productExists = await productsRepository.findByPk(id);
+    if (!productExists) throw new NotFoundError("Produto não encontrado.");
 };
 
 module.exports = verifyProductExists;

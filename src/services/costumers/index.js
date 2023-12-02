@@ -1,9 +1,9 @@
 const createCostumerService = require("./createCostumerService");
+const getAllCostumersService = require("./getAllCostumersService");
 const getCostumerByIdService = require("./getCostumerByIdService");
-const getCostumerService = require("./getCostumerService");
 
 module.exports = {
     createCostumerService,
+    getAllCostumersService,
     getCostumerByIdService,
-    getCostumerService
 };

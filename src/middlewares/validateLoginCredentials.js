@@ -14,22 +14,22 @@ const validateLoginCredentials = async (req, res, next) => {
         if (!user) {
             return res
                 .status(400)
-                .json({ mensagem: "Email ou senha inválidos" });
+                .json({ error: "Email ou senha inválidos" });
         }
         const { senha: hashedPassword, ...userData } = user;
         const isPasswordValid = await bcrypt.compare(senha, hashedPassword);
         if (!isPasswordValid) {
             return res
                 .status(400)
-                .json({ mensagem: "Email ou senha inválidos" });
+                .json({ error: "Email ou senha inválidos" });
         }
         req.user = userData;
         next();
     } catch (error) {
         if (error instanceof ValidationError) {
-            return res.status(400).json({ mensagem: error.message });
+            return res.status(400).json({ error: error.message });
         }
-        return res.status(500).json({ mensagem: "Erro interno do servidor" });
+        return res.status(500).json({ error: "Erro interno do servidor" });
     }
 };
 

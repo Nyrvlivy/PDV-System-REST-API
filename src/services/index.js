@@ -8,8 +8,8 @@ const {
 const { createProductService, updateProductService } = require("./products");
 const {
     createCostumerService,
+    getAllCostumersService,
     getCostumerByIdService,
-    getCostumerService,
 } = require("./costumers");
 
 module.exports = {
@@ -21,6 +21,6 @@ module.exports = {
     createProductService,
     updateProductService,
     createCostumerService,
+    getAllCostumersService,
     getCostumerByIdService,
-    getCostumerService,
 };

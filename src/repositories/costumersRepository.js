@@ -34,13 +34,16 @@ const costumersRepository = {
         return customer;
     },
     getAll: async function () {
-        const costumer = await connection("clientes").select('*');
+        const costumer = await connection("clientes").select("*");
         return costumer;
     },
-    getById: async function (id) {
-        const costumer = await connection("clientes").select('*').where({ id }).first();
+    getByPK: async function (id) {
+        const costumer = await connection("clientes")
+            .select("*")
+            .where({ id })
+            .first();
         return costumer;
-    }
+    },
 };
 
 module.exports = costumersRepository;
