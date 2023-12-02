@@ -49,4 +49,17 @@ const createCostumerSchema = joi.object({
     }),
 });
 
-module.exports = { createCostumerSchema };
+const updateCostumerSchema = createCostumerSchema.concat(
+    joi.object({
+        id: joi.number().integer().required().messages({
+            "number.base": "Id deve ser um número!",
+            "number.integer": "Id deve ser um número inteiro!",
+            "any.required": "Id é um campo obrigatório!",
+        }),
+    })
+);
+
+module.exports = { 
+    createCostumerSchema,
+    updateCostumerSchema
+};

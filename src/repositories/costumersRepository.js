@@ -44,6 +44,34 @@ const costumersRepository = {
             .first();
         return costumer;
     },
+    update: async function (
+        id,
+        nome,
+        email,
+        cpf,
+        cep,
+        rua,
+        numero,
+        bairro,
+        cidade,
+        estado
+        ) {
+        const [customer] = await connection('clientes')
+            .where('id', id)
+            .returning('*')
+            .update({
+                nome,
+                email,
+                cpf,
+                cep,
+                rua,
+                numero,
+                bairro,
+                cidade,
+                estado,
+            });
+        return customer;
+    },
 };
 
 module.exports = costumersRepository;
