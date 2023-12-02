@@ -12,6 +12,7 @@ const verifyProductExists = require("./verifyProductExists");
 const verifyCostumerExists = require("./verifyCostumerExists");
 const verifyCostumerEmailExists = require("./verifyCostumerEmailExists");
 const verifyCostumerCPFExists = require("./verifyCostumerCPFExists");
+const validateCostumerUpdate = require("./validateCostumerUpdate");
 
 module.exports = {
     generateToken,
@@ -28,4 +29,5 @@ module.exports = {
     verifyCostumerExists,
     verifyCostumerEmailExists,
     verifyCostumerCPFExists,
+    validateCostumerUpdate,
 };

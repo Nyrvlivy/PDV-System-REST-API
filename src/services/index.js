@@ -10,6 +10,7 @@ const {
     createCostumerService,
     getAllCostumersService,
     getCostumerByIdService,
+    updateCostumerService,
 } = require("./costumers");
 
 module.exports = {
@@ -23,4 +24,5 @@ module.exports = {
     createCostumerService,
     getAllCostumersService,
     getCostumerByIdService,
+    updateCostumerService,
 };
