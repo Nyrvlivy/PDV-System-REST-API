@@ -13,6 +13,7 @@ const {
     createCostumerController,
     getAllCostumersController,
     getCostumerByIdController,
+    updateCostumerController,
 } = require("./costumers");
 
 module.exports = {
@@ -26,4 +27,5 @@ module.exports = {
     getAllCostumersController,
     getCostumerByIdController,
     updateProductController,
+    updateCostumerController,
 };
