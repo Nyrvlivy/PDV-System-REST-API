@@ -1,7 +1,11 @@
 const { Router } = require("express");
-const { deleteProductByIdController } = require("../controllers");
+const {
+    deleteProductByIdController,
+    getProductByIdController
+} = require("../controllers");
 const productsRouter = Router();
 
-productsRouter.delete("/:id", deleteProductByIdController.handle);
+productsRouter.get("/:id", getProductByIdController.handle);
+productsRouter.delete("/produto/:id", deleteProductByIdController.handle);
 
 module.exports = productsRouter;
