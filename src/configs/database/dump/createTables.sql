@@ -23,10 +23,10 @@ CREATE TABLE clientes (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     cpf VARCHAR(11) UNIQUE NOT NULL,
-    cep VARCHAR(8) NOT NULL,
+    cep VARCHAR(8),
     rua VARCHAR(255),
     numero INTEGER,
     bairro VARCHAR(255),
     cidade VARCHAR(255),
-    estado VARCHAR(2)
+    estado VARCHAR(255)
 );

@@ -55,10 +55,9 @@ const costumersRepository = {
         bairro,
         cidade,
         estado
-        ) {
-        const [customer] = await connection('clientes')
-            .where('id', id)
-            .returning('*')
+    ) {
+        const [customer] = await connection("clientes")
+            .where({ id })
             .update({
                 nome,
                 email,
@@ -69,7 +68,8 @@ const costumersRepository = {
                 bairro,
                 cidade,
                 estado,
-            });
+            })
+            .returning("*");
         return customer;
     },
 };
