@@ -13,7 +13,6 @@ const deleteProductController = {
 
             res.status(204).end();
         } catch (error) {
-            console.log(error);
             if (
                 error instanceof MissingParamError ||
                 error instanceof InvalidParamError
