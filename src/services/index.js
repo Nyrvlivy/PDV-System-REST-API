@@ -7,6 +7,7 @@ const {
 } = require("./users");
 const {
     deleteProductByIdService,
+    getProductsService,
 } = require("./products");
 
 module.exports = {
@@ -16,4 +17,5 @@ module.exports = {
     getUserProfileService,
     updateUserService,
     deleteProductByIdService,
+    getProductsService,
 };
