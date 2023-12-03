@@ -16,7 +16,8 @@ const productsRepository = {
         return await connection.select("*").from("produtos").orderBy("id");
     },
     getByPk: async function (id) {
-        return await connection("produtos").where({ id });
+        const [product] = await connection("produtos").where({ id });
+        return product;
     },
     getByCategoryId: async function (categoria_id) {
         return await connection("produtos").select("*").where({ categoria_id });

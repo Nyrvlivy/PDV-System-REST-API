@@ -8,6 +8,7 @@ const {
 const {
     createProductService,
     getAllProductsService,
+    getProductByIdService,
     updateProductService,
 } = require("./products");
 const {
@@ -25,6 +26,7 @@ module.exports = {
     updateUserService,
     createProductService,
     getAllProductsService,
+    getProductByIdService,
     updateProductService,
     createCostumerService,
     getAllCostumersService,
