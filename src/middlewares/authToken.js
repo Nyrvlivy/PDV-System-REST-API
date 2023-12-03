@@ -7,7 +7,7 @@ const authToken = async (req, res, next) => {
 
     if (!authorization) {
         return res.status(401).json({
-            mensagem:
+            error:
                 "Para acessar este recurso um token de autenticação válido deve ser enviado.",
         });
     }
@@ -26,11 +26,11 @@ const authToken = async (req, res, next) => {
     } catch (erro) {
         if ((erro.message = "invalid token")) {
             return res.status(401).json({
-                mensagem:
+                error:
                     "Para acessar este recurso um token de autenticação válido deve ser enviado.",
             });
         }
-        return res.status(500).json({ mensagem: "Erro interno no servidor" });
+        return res.status(500).json({ error: "Erro interno no servidor" });
     }
 };
 
