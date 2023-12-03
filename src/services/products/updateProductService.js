@@ -11,8 +11,8 @@ const updateProductService = {
         const { id, descricao, quantidade_estoque, valor, categoria_id } =
             payload;
 
-        await verifyProductExists(payload.id);
-        await verifyCategoryExists(payload.categoria_id);
+        await verifyProductExists(id);
+        await verifyCategoryExists(categoria_id);
 
         const updatedProduct = await productsRepository.update(
             id,

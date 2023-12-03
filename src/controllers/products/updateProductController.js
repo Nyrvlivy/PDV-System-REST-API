@@ -12,6 +12,7 @@ const updateProductController = {
             });
             return res.status(200).json(updatedProduct);
         } catch (error) {
+            console.log(error);
             if (
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError

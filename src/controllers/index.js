@@ -7,6 +7,7 @@ const {
 } = require("./users");
 const {
     createProductController,
+    getAllProductsController,
     updateProductController,
 } = require("./products");
 const {
@@ -15,7 +16,6 @@ const {
     getCostumerByIdController,
     updateCostumerController,
 } = require("./costumers");
-
 module.exports = {
     getAllCategoriesController,
     loginUserController,
@@ -23,9 +23,10 @@ module.exports = {
     getUserProfileController,
     updateUserController,
     createProductController,
+    getAllProductsController,
+    updateProductController,
     createCostumerController,
     getAllCostumersController,
     getCostumerByIdController,
-    updateProductController,
     updateCostumerController,
 };

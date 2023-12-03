@@ -5,7 +5,7 @@ const getCostumerByIdService = {
     async execute(id) {
         verifyIdIsValid(id);
         await verifyCostumerExists(id);
-        const costumer = await costumersRepository.getByPK(id);
+        const costumer = await costumersRepository.getByPk(id);
 
         return costumer;
     },

@@ -37,7 +37,7 @@ const costumersRepository = {
         const costumer = await connection("clientes").select("*");
         return costumer;
     },
-    getByPK: async function (id) {
+    getByPk: async function (id) {
         const costumer = await connection("clientes")
             .select("*")
             .where({ id })
