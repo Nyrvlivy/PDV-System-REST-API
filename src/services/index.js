@@ -10,6 +10,7 @@ const {
     getAllProductsService,
     getProductByIdService,
     updateProductService,
+    deleteProductService,
 } = require("./products");
 const {
     createCostumerService,
@@ -28,6 +29,7 @@ module.exports = {
     getAllProductsService,
     getProductByIdService,
     updateProductService,
+    deleteProductService,
     createCostumerService,
     getAllCostumersService,
     getCostumerByIdService,

@@ -5,6 +5,7 @@ const {
     getAllProductsController,
     getProductByIdController,
     updateProductController,
+    deleteProductController,
 } = require("../controllers");
 const { authToken } = require("../middlewares");
 
@@ -13,5 +14,6 @@ productsRouter.post("/", createProductController.handle);
 productsRouter.get("/", getAllProductsController.handle);
 productsRouter.get("/:id", getProductByIdController.handle);
 productsRouter.put("/:id", updateProductController.handle);
+productsRouter.delete("/:id", deleteProductController.handle);
 
 module.exports = productsRouter;

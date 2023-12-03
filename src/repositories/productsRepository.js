@@ -35,6 +35,13 @@ const productsRepository = {
             .update({ id, descricao, quantidade_estoque, valor, categoria_id });
         return product;
     },
+    delete: async function (id) {
+        const [product] = await connection("produtos")
+            .where({ id })
+            .returning("*")
+            .del();
+        return product;
+    },
 };
 
 module.exports = productsRepository;

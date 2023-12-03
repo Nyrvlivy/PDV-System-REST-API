@@ -13,14 +13,14 @@ const getProductByIdController = {
                 error instanceof MissingParamError ||
                 error instanceof InvalidParamError
             ) {
-                return res.status(400).json({ mensagem: error.message });
+                return res.status(400).json({ error: error.message });
             }
             if (error instanceof NotFoundError) {
-                return res.status(404).json({ mensagem: error.message });
+                return res.status(404).json({ error: error.message });
             }
             return res
                 .status(500)
-                .json({ mensagem: "Erro interno no servidor." });
+                .json({ error: "Erro interno no servidor." });
         }
     },
 };
