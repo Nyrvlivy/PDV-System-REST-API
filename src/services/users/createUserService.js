@@ -14,7 +14,6 @@ const createUserService = {
             hashedPassword
         );
         delete user.senha;
-
         return user;
     },
 };

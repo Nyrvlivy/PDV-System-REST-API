@@ -8,21 +8,21 @@ const {
 const createCostumerService = {
     async execute(payload) {
         validateCostumerCreate(payload);
-        await verifyCostumerEmailExists(payload.email);
-        await verifyCostumerCPFExists(payload.cpf);
-        const costumer = await costumersRepository.create(
-            payload.nome,
-            payload.email,
-            payload.cpf,
-            payload.cep,
-            payload.rua,
-            payload.numero,
-            payload.bairro,
-            payload.cidade,
-            payload.estado
+        const { nome, email, cpf, cep, rua, numero, bairro, cidade, estado } =
+            payload;
+        await verifyCostumerEmailExists(email);
+        await verifyCostumerCPFExists(cpf);
+        return await costumersRepository.create(
+            nome,
+            email,
+            cpf,
+            cep,
+            rua,
+            numero,
+            bairro,
+            cidade,
+            estado
         );
-
-        return costumer;
     },
 };
 

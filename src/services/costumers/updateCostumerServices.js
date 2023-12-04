@@ -14,7 +14,7 @@ const updateCostumerService = {
         await verifyCostumerExists(id);
         await verifyCostumerEmailExists(email);
         await verifyCostumerCPFExists(cpf);
-        const costumer = await costumersRepository.update(
+        return await costumersRepository.update(
             id,
             nome,
             email,
@@ -26,7 +26,6 @@ const updateCostumerService = {
             cidade,
             estado
         );
-        return costumer;
     },
 };
 

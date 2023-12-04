@@ -14,14 +14,13 @@ const updateProductService = {
         await verifyProductExists(id);
         await verifyCategoryExists(categoria_id);
 
-        const updatedProduct = await productsRepository.update(
+        return await productsRepository.update(
             id,
             descricao,
             quantidade_estoque,
             valor,
             categoria_id
         );
-        return updatedProduct;
     },
 };
 

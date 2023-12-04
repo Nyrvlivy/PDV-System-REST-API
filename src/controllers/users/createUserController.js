@@ -13,7 +13,7 @@ const createUserController = {
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError
             )
-                return res.status(400).json(error.message);
+                return res.status(400).json({error: error.message});
             return res.status(500).json({ error: "Erro interno do servidor!" });
         }
     },

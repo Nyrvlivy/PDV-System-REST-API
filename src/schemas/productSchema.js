@@ -7,15 +7,17 @@ const createProductSchema = joi.object({
         "string.min": "Descrição deve ter no mínimo 3 caracteres!",
         "any.required": "Descrição é um campo obrigatório!",
     }),
-    quantidade_estoque: joi.number().integer().required().messages({
+    quantidade_estoque: joi.number().integer().min(0).required().messages({
         "number.base": "Quantidade do estoque deve ser um número!",
         "number.integer": "Quantidade do estoque deve ser um número inteiro!",
+        "number.min": "Quantidade do estoque deve ser maior ou igual a 0!",
         "number.empty": "Quantidade do estoque não pode estar vazio!",
         "any.required": "Quantidade do estoque é um campo obrigatório!",
     }),
-    valor: joi.number().integer().required().messages({
+    valor: joi.number().integer().min(1).required().messages({
         "number.base": "Valor deve ser um número!",
         "number.integer": "Valor deve ser um número inteiro e em centavos!",
+        "number.min": "Valor deve ser maior que 0!",
         "number.empty": "Valor não pode estar vazio!",
         "any.required": "Valor é um campo obrigatório!",
     }),

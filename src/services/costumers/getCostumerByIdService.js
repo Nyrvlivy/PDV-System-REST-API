@@ -5,9 +5,7 @@ const getCostumerByIdService = {
     async execute(id) {
         verifyIdIsValid(id);
         await verifyCostumerExists(id);
-        const costumer = await costumersRepository.getByPk(id);
-
-        return costumer;
+        return await costumersRepository.getByPk(id);
     },
 };
 module.exports = getCostumerByIdService;

@@ -5,7 +5,11 @@ const categoriesRepository = {
         return await connection.select("*").from("categorias").orderBy("id");
     },
     getByPk: async function (id) {
-        return await connection("categorias").where({ id });
+        return await connection
+            .select("*")
+            .from("categorias")
+            .where({ id })
+            .first();
     },
 };
 

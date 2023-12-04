@@ -7,7 +7,6 @@ const getUserProfileService = {
 
         const user = await usersRepository.getById(id);
         delete user.senha;
-
         return user;
     },
 };
