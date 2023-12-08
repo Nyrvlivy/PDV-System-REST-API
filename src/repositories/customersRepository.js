@@ -1,6 +1,6 @@
 const connection = require("../configs/database/connection/connection");
 
-const costumersRepository = {
+const customersRepository = {
     create: async function (
         nome,
         email,
@@ -34,15 +34,15 @@ const costumersRepository = {
         return customer;
     },
     getAll: async function () {
-        const costumer = await connection("clientes").select("*");
-        return costumer;
+        const customer = await connection("clientes").select("*");
+        return customer;
     },
     getByPk: async function (id) {
-        const costumer = await connection("clientes")
+        const customer = await connection("clientes")
             .select("*")
             .where({ id })
             .first();
-        return costumer;
+        return customer;
     },
     update: async function (
         id,
@@ -74,4 +74,4 @@ const costumersRepository = {
     },
 };
 
-module.exports = costumersRepository;
+module.exports = customersRepository;

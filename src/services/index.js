@@ -13,11 +13,12 @@ const {
     deleteProductService,
 } = require("./products");
 const {
-    createCostumerService,
-    getAllCostumersService,
-    getCostumerByIdService,
-    updateCostumerService,
-} = require("./costumers");
+    createCustomerService,
+    getAllCustomersService,
+    getCustomerByIdService,
+    updateCustomerService,
+} = require("./customers");
+const { createOrderService } = require("./orders");
 
 module.exports = {
     getAllCategoriesService,
@@ -30,8 +31,9 @@ module.exports = {
     getProductByIdService,
     updateProductService,
     deleteProductService,
-    createCostumerService,
-    getAllCostumersService,
-    getCostumerByIdService,
-    updateCostumerService,
+    createCustomerService,
+    getAllCustomersService,
+    getCustomerByIdService,
+    updateCustomerService,
+    createOrderService,
 };

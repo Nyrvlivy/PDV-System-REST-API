@@ -1,17 +1,17 @@
-const { getCostumerByIdService } = require("../../services");
+const { getCustomerByIdService } = require("../../services");
 const {
     MissingParamError,
     InvalidParamError,
     NotFoundError,
 } = require("../../errors");
 
-const getCostumerByIdController = {
+const getCustomerByIdController = {
     async handle(req, res) {
         try {
             const { id } = req.params;
-            const costumer = await getCostumerByIdService.execute(id);
+            const customer = await getCustomerByIdService.execute(id);
 
-            return res.status(200).json(costumer);
+            return res.status(200).json(customer);
         } catch (error) {
             if (
                 error instanceof MissingParamError ||
@@ -24,4 +24,4 @@ const getCostumerByIdController = {
         }
     },
 };
-module.exports = getCostumerByIdController;
+module.exports = getCustomerByIdController;

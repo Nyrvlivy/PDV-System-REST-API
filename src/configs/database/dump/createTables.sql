@@ -15,7 +15,8 @@ CREATE TABLE produtos (
     descricao VARCHAR(255) NOT NULL,
     quantidade_estoque INTEGER NOT NULL,
     valor INTEGER NOT NULL,
-    categoria_id INTEGER REFERENCES categorias(id) NOT NULL
+    categoria_id INTEGER REFERENCES categorias(id) NOT NULL,
+    produto_imagem VARCHAR(255)
 );
 
 CREATE TABLE clientes (
@@ -29,4 +30,19 @@ CREATE TABLE clientes (
     bairro VARCHAR(255),
     cidade VARCHAR(255),
     estado VARCHAR(255)
+);
+
+CREATE TABLE pedidos (
+    id SERIAL PRIMARY KEY,
+    cliente_id INTEGER REFERENCES clientes(id) NOT NULL,
+    observacao VARCHAR(255),
+    valor_total INTEGER NOT NULL
+);
+
+CREATE TABLE pedido_produtos (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER REFERENCES pedidos(id),
+    produto_id INTEGER REFERENCES produtos(id) NOT NULL,
+    quantidade_produto INTEGER NOT NULL,
+    valor_produto INTEGER NOT NULL
 );

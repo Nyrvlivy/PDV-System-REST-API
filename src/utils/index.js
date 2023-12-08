@@ -3,16 +3,17 @@ const validateUserCreate = require("./validateUserCreate");
 const validateUserUpdate = require("./validateUserUpdate");
 const validateProductCreate = require("./validateProductCreate");
 const validateProductUpdate = require("./validateProductUpdate");
-const validateCostumerCreate = require("./validateCostumerCreate");
+const validateCustomerCreate = require("./validateCustomerCreate");
+const validateCustomerUpdate = require("./validateCustomerUpdate");
+const validateOrderCreate = require("./validateOrderCreate");
 const verifyIdIsValid = require("./verifyIdIsValid");
 const verifyCategoryExists = require("./verifyCategoryExists");
 const verifyUserExists = require("./verifyUserExists");
 const verifyUserEmailExists = require("./verifyUserEmailExists");
 const verifyProductExists = require("./verifyProductExists");
-const verifyCostumerExists = require("./verifyCostumerExists");
-const verifyCostumerEmailExists = require("./verifyCostumerEmailExists");
-const verifyCostumerCPFExists = require("./verifyCostumerCPFExists");
-const validateCostumerUpdate = require("./validateCostumerUpdate");
+const verifyCustomerExists = require("./verifyCustomerExists");
+const verifyCustomerEmailExists = require("./verifyCustomerEmailExists");
+const verifyCustomerCPFExists = require("./verifyCustomerCPFExists");
 
 module.exports = {
     generateToken,
@@ -20,14 +21,15 @@ module.exports = {
     validateUserUpdate,
     validateProductCreate,
     validateProductUpdate,
-    validateCostumerCreate,
+    validateCustomerCreate,
+    validateCustomerUpdate,
+    validateOrderCreate,
     verifyIdIsValid,
     verifyCategoryExists,
     verifyUserExists,
     verifyUserEmailExists,
     verifyProductExists,
-    verifyCostumerExists,
-    verifyCostumerEmailExists,
-    verifyCostumerCPFExists,
-    validateCostumerUpdate,
+    verifyCustomerExists,
+    verifyCustomerEmailExists,
+    verifyCustomerCPFExists,
 };

@@ -1,5 +1,5 @@
 const joi = require("joi");
-const createCostumerSchema = joi.object({
+const createCustomerSchema = joi.object({
     nome: joi.string().min(3).required().messages({
         "string.base": "Nome deve ser uma string!",
         "string.empty": "Nome é um campo obrigatório!",
@@ -26,10 +26,14 @@ const createCostumerSchema = joi.object({
             "string.pattern.base": "CPF deve ter 11 caracteres numéricos!",
             "any.required": "CPF é um campo obrigatório!",
         }),
-    cep: joi.string().pattern(/^[0-9]{8}$/).allow("").messages({
-        "string.base": "CEP deve ser uma string!",
-        "string.pattern.base": "CEP deve ter 8 caracteres numéricos!",
-    }),
+    cep: joi
+        .string()
+        .pattern(/^[0-9]{8}$/)
+        .allow("")
+        .messages({
+            "string.base": "CEP deve ser uma string!",
+            "string.pattern.base": "CEP deve ter 8 caracteres numéricos!",
+        }),
     rua: joi.string().allow("").messages({
         "string.base": "Rua deve ser uma string!",
     }),
@@ -48,7 +52,7 @@ const createCostumerSchema = joi.object({
     }),
 });
 
-const updateCostumerSchema = createCostumerSchema.concat(
+const updateCustomerSchema = createCustomerSchema.concat(
     joi.object({
         id: joi.number().integer().required().messages({
             "number.base": "Id deve ser um número!",
@@ -59,6 +63,6 @@ const updateCostumerSchema = createCostumerSchema.concat(
 );
 
 module.exports = {
-    createCostumerSchema,
-    updateCostumerSchema,
+    createCustomerSchema,
+    updateCustomerSchema,
 };

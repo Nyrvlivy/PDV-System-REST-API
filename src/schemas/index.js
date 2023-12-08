@@ -4,7 +4,11 @@ const {
     updateUserSchema,
 } = require("./userSchema");
 const { createProductSchema, updateProductSchema } = require("./productSchema");
-const { createCostumerSchema, updateCostumerSchema } = require("./costumerSchema");
+const {
+    createCustomerSchema,
+    updateCustomerSchema,
+} = require("./customerSchema");
+const { createOrderSchema } = require("./orderSchema");
 
 module.exports = {
     loginUserSchema,
@@ -12,6 +16,7 @@ module.exports = {
     updateUserSchema,
     createProductSchema,
     updateProductSchema,
-    createCostumerSchema,
-    updateCostumerSchema,
+    createCustomerSchema,
+    updateCustomerSchema,
+    createOrderSchema,
 };
