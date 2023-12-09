@@ -18,7 +18,7 @@ const {
     getCustomerByIdService,
     updateCustomerService,
 } = require("./customers");
-const { createOrderService } = require("./orders");
+const { createOrderService, getOrdersServices } = require("./orders");
 
 module.exports = {
     getAllCategoriesService,
@@ -36,4 +36,5 @@ module.exports = {
     getCustomerByIdService,
     updateCustomerService,
     createOrderService,
+    getOrdersServices,
 };
