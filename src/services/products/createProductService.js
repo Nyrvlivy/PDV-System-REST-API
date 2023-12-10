@@ -19,7 +19,6 @@ const createProductService = {
             );
         }
 
-
         return await productsRepository.create(
             descricao,
             quantidade_estoque,
