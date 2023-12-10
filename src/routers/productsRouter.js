@@ -8,12 +8,13 @@ const {
     deleteProductController,
 } = require("../controllers");
 const { authToken } = require("../middlewares");
+const multer = require('../configs/upload/multer');
 
 productsRouter.use(authToken);
-productsRouter.post("/", createProductController.handle);
+productsRouter.post("/", multer.single('produto_imagem'), createProductController.handle);
 productsRouter.get("/", getAllProductsController.handle);
 productsRouter.get("/:id", getProductByIdController.handle);
-productsRouter.put("/:id", updateProductController.handle);
+productsRouter.put("/:id", multer.single('produto_imagem'), updateProductController.handle);
 productsRouter.delete("/:id", deleteProductController.handle);
 
 module.exports = productsRouter;
