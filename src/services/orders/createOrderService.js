@@ -1,11 +1,11 @@
 const connection = require("../../configs/database/connection/connection");
+const { validateOrderCreate, verifyCustomerExists } = require("../../utils");
 const {
-    validateOrderCreate,
-    verifyCustomerExists,
-    verifyProductExists,
-} = require("../../utils");
-const { productsRepository } = require("../../repositories");
+    productsRepository,
+    customersRepository,
+} = require("../../repositories");
 const { NotFoundError } = require("../../errors");
+const OrderEmailService = require("./orderEmailService");
 
 const createOrderService = {
     async execute(payload) {
@@ -59,13 +59,22 @@ const createOrderService = {
                 order = await connection("pedidos")
                     .returning("*")
                     .where("id", order.id)
-                    .update({ valor_total: valor_total })
+                    .update({ valor_total })
                     .transacting(trx);
+
                 await trx.commit();
+
                 orderProductsData = {
                     pedido: order[0],
                     pedido_produtos: savedProducts,
                 };
+
+                const customerOrderEmail =
+                    await customersRepository.getEmailByPk(cliente_id);
+
+                await OrderEmailService.sendOrderConfirmationEmail(
+                    customerOrderEmail
+                );
             } catch (error) {
                 throw error;
             }
