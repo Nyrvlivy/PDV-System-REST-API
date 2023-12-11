@@ -44,6 +44,12 @@ const customersRepository = {
             .first();
         return customer;
     },
+    getEmailByPk: async function (id) {
+        const [customer] = await connection("clientes")
+            .select("email")
+            .where({ id });
+        return customer.email;
+    },
     update: async function (
         id,
         nome,
