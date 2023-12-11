@@ -5,7 +5,7 @@ const {
     customersRepository,
 } = require("../../repositories");
 const { NotFoundError } = require("../../errors");
-const OrderEmailService = require("./orderEmailService");
+const { OrderEmailService } = require("../email");
 
 const createOrderService = {
     async execute(payload) {
