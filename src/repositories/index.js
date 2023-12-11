@@ -3,6 +3,7 @@ const usersRepository = require("./usersRepository");
 const productsRepository = require("./productsRepository");
 const customersRepository = require("./customersRepository");
 const ordersRepository = require("./ordersRepository");
+const orderProductsRepository = require("./orderProductsRepository");
 
 module.exports = {
     categoriesRepository,
@@ -10,4 +11,5 @@ module.exports = {
     productsRepository,
     customersRepository,
     ordersRepository,
+    orderProductsRepository,
 };
