@@ -18,7 +18,8 @@ const {
     getCustomerByIdController,
     updateCustomerController,
 } = require("./customers");
-const { createOrderController } = require("./orders");
+const { createOrderController, getOrdersController } = require("./orders");
+
 module.exports = {
     getAllCategoriesController,
     loginUserController,
@@ -35,4 +36,5 @@ module.exports = {
     getCustomerByIdController,
     updateCustomerController,
     createOrderController,
+    getOrdersController,
 };
