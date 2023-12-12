@@ -1,4 +1,4 @@
-const nodemailer = require("../../configs/nodemailer");
+const nodemailer = require("../../configs/email/nodemailer");
 const fs = require("fs").promises;
 const path = require("path");
 require("dotenv").config();
