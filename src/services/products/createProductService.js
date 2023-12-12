@@ -1,5 +1,6 @@
 const { productsRepository } = require("../../repositories");
-const { validateProductCreate, verifyCategoryExists, uploadProductImage } = require("../../utils");
+const { validateProductCreate, verifyCategoryExists } = require("../../utils");
+const { uploadProductImage } = require("../../utils");
 
 const createProductService = {
     async execute(payload, file) {
@@ -7,17 +8,13 @@ const createProductService = {
         const { descricao, quantidade_estoque, valor, categoria_id } = payload;
         await verifyCategoryExists(categoria_id);
 
-        let image;
-
-        if (!file) {
-            image = null;
-        } else {
-            image = await uploadProductImage(
-                `products/${file.originalname}`,
-                file.buffer,
-                file.mimetype
-            );
-        }
+        const image = file
+            ? await uploadProductImage(
+                  `products/${file.originalname}`,
+                  file.buffer,
+                  file.mimetype
+              )
+            : null;
 
         return await productsRepository.create(
             descricao,
