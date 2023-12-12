@@ -1,11 +1,15 @@
 const { productsRepository } = require("../../repositories");
-const { verifyIdIsValid, verifyProductExists, verifyIfProductIsntIncludedInAnyOrder } = require("../../utils");
+const {
+    verifyIdIsValid,
+    verifyProductExists,
+    validateProductExclusionFromOrders,
+} = require("../../utils");
 
 const deleteProductByIdService = {
     async execute(id) {
         verifyIdIsValid(id);
         await verifyProductExists(id);
-        await verifyIfProductIsntIncludedInAnyOrder(id);
+        await validateProductExclusionFromOrders(id);
         return await productsRepository.delete(id);
     },
 };

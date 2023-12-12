@@ -10,7 +10,13 @@ const productsRepository = {
     ) {
         const [product] = await connection("produtos")
             .returning("*")
-            .insert({ descricao, quantidade_estoque, valor, categoria_id, produto_imagem });
+            .insert({
+                descricao,
+                quantidade_estoque,
+                valor,
+                categoria_id,
+                produto_imagem,
+            });
         return product;
     },
     getAll: async function () {
@@ -24,7 +30,9 @@ const productsRepository = {
         return await connection("produtos").select("*").where({ categoria_id });
     },
     getByOrder: async function (produto_id) {
-        return await connection("pedido_produtos").select("*").where({ produto_id });
+        return await connection("pedido_produtos")
+            .select("*")
+            .where({ produto_id });
     },
     update: async function (
         id,
@@ -37,7 +45,14 @@ const productsRepository = {
         const [product] = await connection("produtos")
             .where({ id })
             .returning("*")
-            .update({ id, descricao, quantidade_estoque, valor, categoria_id, produto_imagem });
+            .update({
+                id,
+                descricao,
+                quantidade_estoque,
+                valor,
+                categoria_id,
+                produto_imagem,
+            });
         return product;
     },
     delete: async function (id) {

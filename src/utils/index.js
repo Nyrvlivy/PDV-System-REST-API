@@ -3,6 +3,7 @@ const validateUserCreate = require("./validateUserCreate");
 const validateUserUpdate = require("./validateUserUpdate");
 const validateProductCreate = require("./validateProductCreate");
 const validateProductUpdate = require("./validateProductUpdate");
+const validateProductExclusionFromOrders = require("./validateProductExclusionFromOrders");
 const validateCustomerCreate = require("./validateCustomerCreate");
 const validateCustomerUpdate = require("./validateCustomerUpdate");
 const validateOrderCreate = require("./validateOrderCreate");
@@ -14,7 +15,7 @@ const verifyProductExists = require("./verifyProductExists");
 const verifyCustomerExists = require("./verifyCustomerExists");
 const verifyCustomerEmailExists = require("./verifyCustomerEmailExists");
 const verifyCustomerCPFExists = require("./verifyCustomerCPFExists");
-const uploadProductImage = require('./uploadProductImage');
+const uploadProductImage = require("./uploadProductImage");
 
 module.exports = {
     generateToken,
@@ -22,6 +23,7 @@ module.exports = {
     validateUserUpdate,
     validateProductCreate,
     validateProductUpdate,
+    validateProductExclusionFromOrders,
     validateCustomerCreate,
     validateCustomerUpdate,
     validateOrderCreate,
@@ -33,5 +35,5 @@ module.exports = {
     verifyCustomerExists,
     verifyCustomerEmailExists,
     verifyCustomerCPFExists,
-    uploadProductImage
+    uploadProductImage,
 };
