@@ -7,7 +7,7 @@ const orderProductsRepository = {
             .where("pedido_id", id)
             .first();
         return orderProducts;
-    }
+    },
 };
 
 module.exports = orderProductsRepository;

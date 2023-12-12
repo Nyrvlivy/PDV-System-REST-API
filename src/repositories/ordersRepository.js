@@ -11,7 +11,7 @@ const ordersRepository = {
             .where("cliente_id", id)
             .first();
         return orders;
-    }
+    },
 };
 
 module.exports = ordersRepository;

@@ -1,6 +1,9 @@
 const { Router } = require("express");
 const ordersRouter = Router();
-const { createOrderController, getOrdersController } = require("../controllers");
+const {
+    createOrderController,
+    getOrdersController,
+} = require("../controllers");
 const { authToken } = require("../middlewares");
 
 ordersRouter.use(authToken);

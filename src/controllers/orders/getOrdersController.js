@@ -8,10 +8,10 @@ const {
 const getOrdersController = {
     async handle(req, res) {
         try {
-        const { cliente_id } = req.query;
-        const orders = await getOrdersServices.execute(cliente_id);
+            const { cliente_id } = req.query;
+            const orders = await getOrdersServices.execute(cliente_id);
 
-        return res.status(200).json([orders]);
+            return res.status(200).json([orders]);
         } catch (error) {
             if (
                 error instanceof MissingParamError ||
@@ -22,7 +22,7 @@ const getOrdersController = {
                 return res.status(404).json({ error: error.message });
             return res.status(500).json({ error: "Erro interno do servidor!" });
         }
-    }
-}
+    },
+};
 
 module.exports = getOrdersController;
