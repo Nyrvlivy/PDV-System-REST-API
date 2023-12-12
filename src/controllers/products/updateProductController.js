@@ -6,10 +6,11 @@ const updateProductController = {
     async handle(req, res) {
         try {
             const { id } = req.params;
+            const { file } = req;
             const updatedProduct = await updateProductService.execute({
                 ...req.body,
                 id,
-            });
+            }, file);
             return res.status(200).json(updatedProduct);
         } catch (error) {
             if (

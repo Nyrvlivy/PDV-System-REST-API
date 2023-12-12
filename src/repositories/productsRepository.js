@@ -5,11 +5,12 @@ const productsRepository = {
         descricao,
         quantidade_estoque,
         valor,
-        categoria_id
+        categoria_id,
+        produto_imagem
     ) {
         const [product] = await connection("produtos")
             .returning("*")
-            .insert({ descricao, quantidade_estoque, valor, categoria_id });
+            .insert({ descricao, quantidade_estoque, valor, categoria_id, produto_imagem });
         return product;
     },
     getAll: async function () {
@@ -27,12 +28,13 @@ const productsRepository = {
         descricao,
         quantidade_estoque,
         valor,
-        categoria_id
+        categoria_id,
+        produto_imagem
     ) {
         const [product] = await connection("produtos")
             .where({ id })
             .returning("*")
-            .update({ id, descricao, quantidade_estoque, valor, categoria_id });
+            .update({ id, descricao, quantidade_estoque, valor, categoria_id, produto_imagem });
         return product;
     },
     delete: async function (id) {
