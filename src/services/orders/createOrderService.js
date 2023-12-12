@@ -15,6 +15,7 @@ const createOrderService = {
     async execute(payload) {
         const { cliente_id, observacao, pedido_produtos } = payload;
         validateOrderCreate(payload);
+        const customerData = await customersRepository.getByPk(cliente_id);
         await verifyCustomerExists(cliente_id);
 
         const orderData = {
@@ -53,11 +54,17 @@ const createOrderService = {
             productsData
         );
 
+        const orderNumber = orderProductsData.pedidos.id;
+        const customerName = customerData.nome;
         const customerOrderEmail = await customersRepository.getEmailByPk(
             cliente_id
         );
 
-        await OrderEmailService.sendOrderConfirmationEmail(customerOrderEmail);
+        await OrderEmailService.sendOrderConfirmationEmail(
+            customerOrderEmail,
+            orderNumber,
+            customerName
+        );
 
         return orderProductsData;
     },

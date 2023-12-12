@@ -1,23 +1,35 @@
 const nodemailer = require("../../configs/email/nodemailer");
-const fs = require("fs").promises;
+const HandlebarsConfig = require("../../configs/email/handlebarsConfig");
 const path = require("path");
 require("dotenv").config();
 
 class OrderEmailService {
-    async sendOrderConfirmationEmail(customerEmail) {
+    constructor() {
+        this.templatePath = path.join(
+            __dirname,
+            "emailTemplates",
+            "orderConfirmation.html"
+        );
+
+        this.handlebarsConfig = new HandlebarsConfig(this.templatePath);
+    }
+
+    async sendOrderConfirmationEmail(customerEmail, orderNumber, customerName) {
         try {
-            const templatePath = path.join(
-                __dirname,
-                "emailTemplates",
-                "orderConfirmation.html"
-            );
-            const emailTemplate = await fs.readFile(templatePath, "utf-8");
+            await this.handlebarsConfig.loadTemplate();
+
+            const templateData = {
+                orderNumber,
+                customerName,
+            };
+
+            const emailHtml = this.handlebarsConfig.generateHtml(templateData);
 
             const mailOptions = {
                 from: `"${process.env.EMAIL_NAME}" <${process.env.EMAIL_FROM}>`,
                 to: customerEmail,
                 subject: "Confirmação de Pedido",
-                html: emailTemplate,
+                html: emailHtml,
             };
 
             await nodemailer.sendMail(mailOptions);
