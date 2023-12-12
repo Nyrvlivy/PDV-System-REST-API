@@ -23,6 +23,9 @@ const productsRepository = {
     getByCategoryId: async function (categoria_id) {
         return await connection("produtos").select("*").where({ categoria_id });
     },
+    getByOrder: async function (produto_id) {
+        return await connection("pedido_produtos").select("*").where({ produto_id });
+    },
     update: async function (
         id,
         descricao,
