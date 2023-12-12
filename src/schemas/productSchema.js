@@ -37,7 +37,6 @@ const createProductSchema = joi.object({
         .optional()
         .messages({
             "object.base": "Envie uma imagem!",
-            "any.required": "Imagem é um campo obrigatório!",
         }),
 });
 
