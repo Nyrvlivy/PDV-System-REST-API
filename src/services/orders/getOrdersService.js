@@ -6,23 +6,17 @@ const { verifyIdIsValid, verifyCustomerExists } = require("../../utils");
 
 const getOrdersServices = {
     async execute(cliente_id) {
-        let orderProductsData = [];
+        const orderProductsData = [];
+        let orders;
+
         if (cliente_id) {
             verifyIdIsValid(cliente_id);
             await verifyCustomerExists(cliente_id);
-            const orders = await ordersRepository.getByCustomer(cliente_id);
-            for (const order of orders) {
-                const orderProducts = await orderProductsRepository.getByOrder(
-                    order.id
-                );
-                orderProductsData.push({
-                    pedido: order,
-                    pedido_produtos: orderProducts,
-                });
-            }
-            return orderProductsData;
+            orders = await ordersRepository.getByCustomer(cliente_id);
+        } else {
+            orders = await ordersRepository.getAll();
         }
-        const orders = await ordersRepository.getAll();
+
         for (const order of orders) {
             const orderProducts = await orderProductsRepository.getByOrder(
                 order.id
@@ -32,6 +26,7 @@ const getOrdersServices = {
                 pedido_produtos: orderProducts,
             });
         }
+
         return orderProductsData;
     },
 };

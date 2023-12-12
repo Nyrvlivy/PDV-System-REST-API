@@ -11,7 +11,7 @@ const getOrdersController = {
             const { cliente_id } = req.query;
             const orders = await getOrdersServices.execute(cliente_id);
 
-            return res.status(200).json([orders]);
+            return res.status(200).json(orders);
         } catch (error) {
             if (
                 error instanceof MissingParamError ||

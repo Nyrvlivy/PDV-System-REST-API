@@ -5,11 +5,10 @@ const ordersRepository = {
         const orders = await connection("pedidos").select("*");
         return orders;
     },
-    getByCustomer: async function (id) {
+    getByCustomer: async function (cliente_id) {
         const orders = await connection("pedidos")
             .select("*")
-            .where("cliente_id", id)
-            .first();
+            .where({ cliente_id });
         return orders;
     },
 };

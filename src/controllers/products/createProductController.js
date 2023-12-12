@@ -6,11 +6,10 @@ const createProductController = {
     async handle(req, res) {
         try {
             const payload = req.body;
-            const { file } = req
+            const { file } = req;
             const product = await createProductService.execute(payload, file);
             return res.status(201).json(product);
         } catch (error) {
-            console.log(error)
             if (
                 error instanceof InvalidParamError ||
                 error instanceof ValidationError
