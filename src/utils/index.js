@@ -3,6 +3,7 @@ const validateUserCreate = require("./validateUserCreate");
 const validateUserUpdate = require("./validateUserUpdate");
 const validateProductCreate = require("./validateProductCreate");
 const validateProductUpdate = require("./validateProductUpdate");
+const validateProductExclusionFromOrders = require("./validateProductExclusionFromOrders");
 const validateCustomerCreate = require("./validateCustomerCreate");
 const validateCustomerUpdate = require("./validateCustomerUpdate");
 const validateOrderCreate = require("./validateOrderCreate");
@@ -23,6 +24,7 @@ module.exports = {
     validateUserUpdate,
     validateProductCreate,
     validateProductUpdate,
+    validateProductExclusionFromOrders,
     validateCustomerCreate,
     validateCustomerUpdate,
     validateOrderCreate,

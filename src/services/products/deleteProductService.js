@@ -1,5 +1,9 @@
 const { productsRepository } = require("../../repositories");
-const { verifyIdIsValid, verifyProductExists, deleteProductImage } = require("../../utils");
+const {
+    verifyIdIsValid,
+    verifyProductExists, deleteProductImage,
+    validateProductExclusionFromOrders,
+} = require("../../utils");
 
 
 const deleteProductByIdService = {
@@ -11,6 +15,7 @@ const deleteProductByIdService = {
         image = await deleteProductImage(
             fileName
         );
+        await validateProductExclusionFromOrders(id);
         return await productsRepository.delete(id)
     }
 }

@@ -2,6 +2,7 @@ const { deleteProductService } = require("../../services");
 const {
     MissingParamError,
     InvalidParamError,
+    ConflictError,
     NotFoundError,
 } = require("../../errors");
 
@@ -18,6 +19,9 @@ const deleteProductController = {
                 error instanceof InvalidParamError
             ) {
                 return res.status(400).json({ error: error.message });
+            }
+            if (error instanceof ConflictError) {
+                return res.status(409).json({ error: error.message });
             }
             if (error instanceof NotFoundError) {
                 return res.status(404).json({ error: error.message });
