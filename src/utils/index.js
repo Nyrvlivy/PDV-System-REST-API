@@ -15,8 +15,7 @@ const verifyProductExists = require("./verifyProductExists");
 const verifyCustomerExists = require("./verifyCustomerExists");
 const verifyCustomerEmailExists = require("./verifyCustomerEmailExists");
 const verifyCustomerCPFExists = require("./verifyCustomerCPFExists");
-const uploadProductImage = require('./uploadProductImage');
-const deleteProductImage = require('./deleteProductImage')
+const uploadProductImage = require("./uploadProductImage");
 
 module.exports = {
     generateToken,
@@ -37,5 +36,4 @@ module.exports = {
     verifyCustomerEmailExists,
     verifyCustomerCPFExists,
     uploadProductImage,
-    deleteProductImage
 };

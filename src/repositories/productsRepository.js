@@ -8,15 +8,13 @@ const productsRepository = {
         categoria_id,
         produto_imagem
     ) {
-        const [product] = await connection("produtos")
-            .returning("*")
-            .insert({
-                descricao,
-                quantidade_estoque,
-                valor,
-                categoria_id,
-                produto_imagem,
-            });
+        const [product] = await connection("produtos").returning("*").insert({
+            descricao,
+            quantidade_estoque,
+            valor,
+            categoria_id,
+            produto_imagem,
+        });
         return product;
     },
     getAll: async function () {

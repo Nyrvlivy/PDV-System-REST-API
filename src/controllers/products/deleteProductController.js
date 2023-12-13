@@ -2,6 +2,7 @@ const { deleteProductService } = require("../../services");
 const {
     MissingParamError,
     InvalidParamError,
+    ConflictError,
     NotFoundError,
 } = require("../../errors");
 
@@ -11,7 +12,7 @@ const deleteProductController = {
             const { id } = req.params;
             await deleteProductService.execute(id);
 
-            return res.status(204).end();
+            res.status(204).end();
         } catch (error) {
             if (
                 error instanceof MissingParamError ||
@@ -19,10 +20,13 @@ const deleteProductController = {
             ) {
                 return res.status(400).json({ error: error.message });
             }
+            if (error instanceof ConflictError) {
+                return res.status(409).json({ error: error.message });
+            }
             if (error instanceof NotFoundError) {
                 return res.status(404).json({ error: error.message });
             }
-            return res.status(500).json({ error: error.message });
+            res.status(500).json({ error: "Erro interno no servidor." });
         }
     },
 };

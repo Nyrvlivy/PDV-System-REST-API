@@ -1,27 +1,13 @@
 const { productsRepository } = require("../../repositories");
 const {
     verifyIdIsValid,
-    verifyProductExists, deleteProductImage,
+    verifyProductExists,
     validateProductExclusionFromOrders,
 } = require("../../utils");
 const s3 = require("../../configs/upload/s3");
 
-
 const deleteProductByIdService = {
     async execute(id) {
-<<<<<<< HEAD
-        verifyIdIsValid(id);
-        const product = await verifyProductExists(id);
-        const index = product.produto_imagem.lastIndexOf('products')
-        let fileName = product.produto_imagem.slice(index)
-        image = await deleteProductImage(
-            fileName
-        );
-        await validateProductExclusionFromOrders(id);
-        return await productsRepository.delete(id)
-    }
-}
-=======
         try {
             verifyIdIsValid(id);
             await verifyProductExists(id);
@@ -53,6 +39,5 @@ const deleteProductByIdService = {
         }
     },
 };
->>>>>>> fc2959e98383518fa47612653d382ab017f4ab2f
 
 module.exports = deleteProductByIdService;
