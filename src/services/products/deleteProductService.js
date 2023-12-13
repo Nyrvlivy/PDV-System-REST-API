@@ -1,14 +1,15 @@
 const { productsRepository } = require("../../repositories");
-const { verifyIdIsValid, verifyProductExists } = require("../../utils");
+const { verifyIdIsValid, verifyProductExists, deleteProductImage } = require("../../utils");
 
 
 const deleteProductByIdService = {
     async execute(id) {
         verifyIdIsValid(id);
         const product = await verifyProductExists(id);
-        console.log(product)
+        const index = product.produto_imagem.lastIndexOf('products')
+        let fileName = product.produto_imagem.slice(index)
         image = await deleteProductImage(
-            `products/${file.originalname}`,
+            fileName
         );
         return await productsRepository.delete(id)
     }
