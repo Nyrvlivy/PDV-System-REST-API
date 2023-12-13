@@ -13,11 +13,13 @@ const {
     deleteProductController,
 } = require("./products");
 const {
-    createCostumerController,
-    getAllCostumersController,
-    getCostumerByIdController,
-    updateCostumerController,
-} = require("./costumers");
+    createCustomerController,
+    getAllCustomersController,
+    getCustomerByIdController,
+    updateCustomerController,
+} = require("./customers");
+const { createOrderController, getOrdersController } = require("./orders");
+
 module.exports = {
     getAllCategoriesController,
     loginUserController,
@@ -29,8 +31,10 @@ module.exports = {
     getProductByIdController,
     updateProductController,
     deleteProductController,
-    createCostumerController,
-    getAllCostumersController,
-    getCostumerByIdController,
-    updateCostumerController,
+    createCustomerController,
+    getAllCustomersController,
+    getCustomerByIdController,
+    updateCustomerController,
+    createOrderController,
+    getOrdersController,
 };

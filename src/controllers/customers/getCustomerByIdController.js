@@ -1,25 +1,21 @@
-const { updateCostumerService } = require("../../services");
+const { getCustomerByIdService } = require("../../services");
 const {
-    InvalidParamError,
     MissingParamError,
+    InvalidParamError,
     NotFoundError,
 } = require("../../errors");
-const { ValidationError } = require("joi");
 
-const updateCostumerController = {
+const getCustomerByIdController = {
     async handle(req, res) {
         try {
             const { id } = req.params;
+            const customer = await getCustomerByIdService.execute(id);
 
-            const costumer = await updateCostumerService.execute({
-                ...req.body,
-                id,
-            });
-            return res.status(200).json(costumer);
+            return res.status(200).json(customer);
         } catch (error) {
             if (
-                error instanceof InvalidParamError ||
-                error instanceof ValidationError
+                error instanceof MissingParamError ||
+                error instanceof InvalidParamError
             )
                 return res.status(400).json({ error: error.message });
             if (error instanceof NotFoundError)
@@ -28,5 +24,4 @@ const updateCostumerController = {
         }
     },
 };
-
-module.exports = updateCostumerController;
+module.exports = getCustomerByIdController;

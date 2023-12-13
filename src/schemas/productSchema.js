@@ -27,6 +27,17 @@ const createProductSchema = joi.object({
         "number.empty": "Id da categoria não pode estar vazio!",
         "any.required": "Id da categoria é um campo obrigatório!",
     }),
+    produto_imagem: joi
+        .object({
+            originalname: joi.string().allow("", null).optional(),
+            buffer: joi.binary().required(),
+            mimetype: joi.string().required(),
+        })
+        .allow(null)
+        .optional()
+        .messages({
+            "object.base": "Envie uma imagem!",
+        }),
 });
 
 const updateProductSchema = createProductSchema.concat(

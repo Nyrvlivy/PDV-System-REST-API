@@ -1,15 +1,14 @@
-const createCostumerService = require("../../services/costumers/createCostumerService");
+const { createCustomerService } = require("../../services");
 const { InvalidParamError } = require("../../errors");
 const { ValidationError } = require("joi");
-const e = require("cors");
 
-const createCostumerController = {
+const createCustomerController = {
     async handle(req, res) {
         try {
             const payload = req.body;
-            const costumer = await createCostumerService.execute(payload);
+            const customer = await createCustomerService.execute(payload);
 
-            return res.status(201).json(costumer);
+            return res.status(201).json(customer);
         } catch (error) {
             if (
                 error instanceof InvalidParamError ||
@@ -21,4 +20,4 @@ const createCostumerController = {
     },
 };
 
-module.exports = createCostumerController;
+module.exports = createCustomerController;

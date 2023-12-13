@@ -4,9 +4,10 @@ const {
     verifyProductExists,
     verifyCategoryExists,
 } = require("../../utils");
+const { uploadProductImage } = require("../../utils");
 
 const updateProductService = {
-    async execute(payload) {
+    async execute(payload, file) {
         validateProductUpdate(payload);
         const { id, descricao, quantidade_estoque, valor, categoria_id } =
             payload;
@@ -14,12 +15,21 @@ const updateProductService = {
         await verifyProductExists(id);
         await verifyCategoryExists(categoria_id);
 
+        const image = file
+            ? await uploadProductImage(
+                  `products/${file.originalname}`,
+                  file.buffer,
+                  file.mimetype
+              )
+            : null;
+
         return await productsRepository.update(
             id,
             descricao,
             quantidade_estoque,
             valor,
-            categoria_id
+            categoria_id,
+            image
         );
     },
 };
