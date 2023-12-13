@@ -1,5 +1,5 @@
 const s3 = require('../configs/upload/s3');
-
+console.log(process.env.ENDPOINT_S3)
 const uploadProductImage = async (path, buffer, mimetype) => {
     const file = await s3.upload({
         Bucket: process.env.KEY_NAME,

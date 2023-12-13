@@ -11,7 +11,7 @@ const deleteProductController = {
             const { id } = req.params;
             await deleteProductService.execute(id);
 
-            res.status(204).end();
+            return res.status(204).end();
         } catch (error) {
             if (
                 error instanceof MissingParamError ||
@@ -22,7 +22,7 @@ const deleteProductController = {
             if (error instanceof NotFoundError) {
                 return res.status(404).json({ error: error.message });
             }
-            res.status(500).json({ error: "Erro interno no servidor." });
+            return res.status(500).json({ error: "Erro interno no servidor." });
         }
     },
 };
