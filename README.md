@@ -86,7 +86,8 @@ To access and test the project locally, follow these steps:
 
 2. **Environment Configuration:**
     - Create a `.env` file at the root of the project.
-    - Configure the file with the necessary environment variables based on your local database setup. Example (`.env.example`):
+    - Configure the file with the necessary environment variables based on your local database setup. Example `.env.example`:
+      ##
       ```
         PORT=
         DB_HOST=
