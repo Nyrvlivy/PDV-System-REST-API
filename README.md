@@ -146,6 +146,8 @@ Note: _Authentication with bearerAuth is required for some endpoints._
 - **Endpoint:** `/categoria`
 - **Function:** Retrieve all categories from the database.
 
+##
+
 ### USERS
 #### Register User
 - **Method:** POST
@@ -165,6 +167,8 @@ Note: _Authentication with bearerAuth is required for some endpoints._
 - **Endpoint:** `/usuario`
 - **Function:** Retrieve the profile details of the user based on the authentication token.
 
+##
+
 ### PRODUCTS
 #### Create Product
 - **Method:** POST
@@ -183,6 +187,8 @@ Note: _Authentication with bearerAuth is required for some endpoints._
 - **Description:** Returns the details of a specific product.
 - **Endpoint:** `/produto/:id`
 - **Function:** Retrieve the details of a product based on the ID.
+
+##
 
 ### ORDERS
 #### Create Order
